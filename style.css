@@ -1,0 +1,24 @@
+* {
+  margin: 0px;
+  font-family: verdana;
+}
+
+header {
+  background: #EFF7FF;
+  padding: 5px;
+  border-bottom: 2px solid #A5A4A4;
+}
+
+header a {
+  color: #222;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #149EF0;
+}
+
+#login {
+  float: right;
+}
