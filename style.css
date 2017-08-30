@@ -22,3 +22,25 @@ header a:hover {
 #login {
   float: right;
 }
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.wrapper {
+  width: 960px;
+  height: 100%;
+}
+
+ol {
+  counter-reset: custom;
+  list-style-type: none;
+}
+
+ol li:before {
+  content: counter(custom) " ";
+  counter-increment: custom;
+}
