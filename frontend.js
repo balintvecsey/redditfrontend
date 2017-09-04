@@ -12,6 +12,19 @@ let submittedText = document.createElement('p');
 let modifyButton = document.createElement('p');
 let deleteButton = document.createElement('p');
 
+window.onload = function() {
+  let http = new XMLHttpRequest();
+
+  http.onreadystatechange = function() {
+    if(http.readyState === 4 && http.status === 200) {
+      console.log(JSON.parse(http.response));
+    }
+  }
+
+  http.open('GET', 'http://localhost:8080/posts');
+  http.send();
+}
+
 voteContainer.className = 'vote container';
 contentContainer.className = 'content container';
 voteCounter.className = 'votecounter';
