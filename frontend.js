@@ -21,9 +21,9 @@ contentText.href = 'https://www.google.hu/';
 contentText.innerHTML = 'Example - Jump to Google';
 submittedText.innerHTML = 'submitted 1 month ago by anonymous';
 modifyButton.className = 'modify';
-modifyButton.innerHTML = 'modify';
+modifyButton.innerHTML = modifyButton.className;
 deleteButton.className = 'delete';
-deleteButton.innerHTML = 'delete';
+deleteButton.innerHTML = deleteButton.className;
 
 post.appendChild(voteContainer);
 voteContainer.appendChild(upvoteButton);
