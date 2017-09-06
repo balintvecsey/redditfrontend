@@ -57,21 +57,3 @@ window.onload = function() {
   http.open('GET', 'http://localhost:8080/posts');
   http.send();
 }
-
-function upvote(id) {
-  http.onreadystatechange = function() {
-
-  };
-
-  http.open('PUT', 'http://localhost:8080/posts/' + id + '/upvote');
-  http.send();
-}
-
-function downvote(id) {
-  http.onreadystatechange = function() {
-
-  };
-
-  http.open('PUT', 'http://localhost:8080/posts/' + id + '/downvote');
-  http.send();
-}
