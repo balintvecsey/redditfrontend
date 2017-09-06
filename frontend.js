@@ -1,14 +1,14 @@
 'use strict';
 
+let http = new XMLHttpRequest();
+
 window.onload = function() {
   let postList = document.querySelector('ol');
-
-  let http = new XMLHttpRequest();
 
   http.onreadystatechange = function() {
     if(http.readyState === 4 && http.status === 200) {
       let postListResponse = JSON.parse(http.response);
-      for (var i = 0; i < postListResponse.posts.length; i++) {
+      postListResponse.posts.forEach(function(postData) {
 
         let post = document.createElement('li');
         let voteContainer = document.createElement('div');
@@ -33,9 +33,9 @@ window.onload = function() {
         deleteButton.className = 'delete';
         deleteButton.innerHTML = deleteButton.className;
 
-        voteCounter.innerText = postListResponse.posts[i].score;
-        contentText.innerText = postListResponse.posts[i].title;
-        contentText.href = postListResponse.posts[i].href;
+        voteCounter.innerText = postData.score;
+        contentText.innerText = postData.title;
+        contentText.href = postData.href;
 
         post.appendChild(voteContainer);
         voteContainer.appendChild(upvoteButton);
@@ -50,10 +50,28 @@ window.onload = function() {
 
         postList.appendChild(post);
         console.log(voteCounter);
-      }
+      })
     }
   }
 
   http.open('GET', 'http://localhost:8080/posts');
+  http.send();
+}
+
+function upvote(id) {
+  http.onreadystatechange = function() {
+
+  };
+
+  http.open('PUT', 'http://localhost:8080/posts/' + id + '/upvote');
+  http.send();
+}
+
+function downvote(id) {
+  http.onreadystatechange = function() {
+
+  };
+
+  http.open('PUT', 'http://localhost:8080/posts/' + id + '/downvote');
   http.send();
 }
