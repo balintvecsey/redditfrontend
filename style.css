@@ -21,6 +21,7 @@ header a:hover {
 
 #login {
   float: right;
+  cursor: pointer;
 }
 
 .main {
